@@ -1,0 +1,38 @@
+{
+    "name": "Flower Shop AI System",
+    "image": "mcr.microsoft.com/devcontainers/python:3.11",
+    "features": {
+        "ghcr.io/devcontainers/features/python:1": {
+            "version": "3.11"
+        },
+        "ghcr.io/devcontainers/features/git:1": {}
+    },
+    "forwardPorts": [5000, 8080],
+    "postCreateCommand": "pip install -r requirements.txt",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python",
+                "ms-toolsai.jupyter",
+                "formulahendry.code-runner",
+                "ms-python.vscode-pylance"
+            ],
+            "settings": {
+                "python.defaultInterpreterPath": "/usr/local/bin/python",
+                "python.linting.enabled": true,
+                "python.linting.pylintEnabled": true,
+                "python.formatting.autopep8Path": "/usr/local/py-utils/bin/autopep8"
+            }
+        }
+    },
+    "portsAttributes": {
+        "5000": {
+            "label": "Flower Shop Web App",
+            "onAutoForward": "openPreview"
+        },
+        "8080": {
+            "label": "Dashboard",
+            "onAutoForward": "openPreview"
+        }
+    }
+}
